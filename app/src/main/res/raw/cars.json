@@ -1,15 +1,48 @@
 {
 "carList":[
   {
-    "brand": "mercedes",
-    "model": "190E"
+    "brand": "Mercedes",
+    "model": "190E",
+    "motorType":"2.0f",
+    "maxSpeed":"120",
+    "zeroToHundredSpeed":"13.0",
+    "gearType":"Manuel",
+    "wheelSize":"185/55/15",
+    "bodyType":"Sedan",
+    "energyType":"LPG/Fuel Oil",
+    "bodyWeight":1500.0,
+    "productionYears":"1985-1993",
+    "euroNcapPoint": 4,
+    "pullType":"Rear Thrust"
   },
   {
-    "brand": "mercedes",
-    "model": "AmgGt"
+    "brand": "Mercedes",
+    "model": "Amg gt",
+    "motorType":"2.0f",
+    "maxSpeed":"120",
+    "zeroToHundredSpeed":"13.0",
+    "gearType":"Manuel",
+    "wheelSize":"185/55/15",
+    "bodyType":"Sedan",
+    "energyType":"LPG/Fuel Oil",
+    "bodyWeight":1500.0,
+    "productionYears":"1985-1993",
+    "euroNcapPoint": 4,
+    "pullType":"Rear Thrust"
   },
   {
-    "brand": "citroen",
-    "model": "c5AirCross"
+    "brand": "Citroen",
+    "model": "C5 Aircross",
+    "motorType":"1.5 dCi",
+    "maxSpeed":"120",
+    "zeroToHundredSpeed":"13.0",
+    "gearType":"Auto",
+    "wheelSize":"195/65/18",
+    "bodyType":"SUV",
+    "energyType":"Diesel",
+    "bodyWeight":1480.0,
+    "productionYears":"2019-2022",
+    "euroNcapPoint": 5,
+    "pullType":"Front Drive"
   }
 ]}

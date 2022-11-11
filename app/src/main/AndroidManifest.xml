@@ -13,37 +13,7 @@
         android:theme="@style/Theme.VehicleFeatures"
         tools:targetApi="31">
         <activity
-            android:name=".MercedesAmgGt"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".CModel"
-            android:exported="false"
-            tools:ignore="DuplicateActivity">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".C5"
-            android:exported="false"
-            tools:ignore="DuplicateActivity">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".MercedesModel"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".mercedes"
+            android:name=".CarModelsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
