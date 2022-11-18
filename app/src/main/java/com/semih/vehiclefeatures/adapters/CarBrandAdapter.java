@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.semih.vehiclefeatures.CarInfo;
+import com.semih.vehiclefeatures.CarInfoActivity;
 import com.semih.vehiclefeatures.CarModelsActivity;
 import com.semih.vehiclefeatures.R;
 
@@ -20,6 +21,8 @@ public class CarBrandAdapter extends RecyclerView.Adapter<CarBrandAdapter.CarBra
     List<CarInfo> carInfoList;
     Context context;
     boolean isModelActivity = false;
+    private Intent CarInfoActivity;
+
     public CarBrandAdapter(List<CarInfo> carInfoList, Context context, boolean isModelActivity) {
         this.carInfoList = carInfoList;
         this.context = context;
@@ -69,6 +72,9 @@ public class CarBrandAdapter extends RecyclerView.Adapter<CarBrandAdapter.CarBra
                         context.startActivity(intent);
                     } else {
                         //TODO: Tıklanan CarInfo'you göndererek CarInfoActivity'si çağırılacak
+                        Intent intent = new Intent(context,CarInfoActivity.class);
+                        intent.putExtra("carInfo", carInfo);
+                        context.startActivity(intent);
                     }
                 }
             });
