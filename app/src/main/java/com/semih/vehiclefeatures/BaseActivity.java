@@ -1,5 +1,8 @@
 package com.semih.vehiclefeatures;
 
+import android.content.DialogInterface;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.gson.Gson;
@@ -37,6 +40,23 @@ public class BaseActivity extends AppCompatActivity {
         Gson gson=new GsonBuilder().create();
         CarInfoList cars1 = gson.fromJson(jsonString,CarInfoList.class);
         return cars1;
+    }
+    public void showAlertDialogForTogActivities(String message){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(false);
+        builder.setMessage(message);
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 
 }

@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import com.semih.vehiclefeatures.adapters.CarBrandAdapter;
 import com.semih.vehiclefeatures.databinding.ActivityCarModelsBinding;
@@ -19,17 +20,20 @@ import java.util.List;
 public class CarModelsActivity extends BaseActivity {
     ActivityCarModelsBinding binding;
     CarInfoList cars;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityCarModelsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         Intent intent = getIntent();
         CarInfo brandCar = (CarInfo) intent.getExtras().get("carInfo");
         cars = getAllCars();
         List<CarInfo> carList = new ArrayList<>();
-        for (CarInfo item: cars.getCarList()) {
-            if(item.getBrand().equals(brandCar.getBrand())){
+        for (CarInfo item : cars.getCarList()) {
+            if (item.getBrand().equals(brandCar.getBrand())) {
                 carList.add(item);
             }
         }
@@ -42,23 +46,18 @@ public class CarModelsActivity extends BaseActivity {
         binding.rvCarBrand.setHasFixedSize(true);
         getSupportActionBar().setTitle(brandCar.getBrand());
     }
+
     @Override
     public void onBackPressed() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setCancelable(false);
-        builder.setMessage("Do you want to return to the previous page?");
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                finish();
-            }
-        });
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
-        AlertDialog alert = builder.create();
-        alert.show();
+        this.showAlertDialogForTogActivities("Do you want to return to the previous page?");
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        this.onBackPressed();
+//        if (item.getItemId() == android.R.id.home) {
+//            finish();
+//        }
+        return super.onOptionsItemSelected(item);
     }
 }

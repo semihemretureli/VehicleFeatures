@@ -3,13 +3,14 @@ package com.semih.vehiclefeatures;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.semih.vehiclefeatures.databinding.ActivityCarInfoBinding;
 
-public class CarInfoActivity extends AppCompatActivity {
+public class CarInfoActivity extends BaseActivity{
     ActivityCarInfoBinding binding;
 
     @Override
@@ -18,28 +19,24 @@ public class CarInfoActivity extends AppCompatActivity {
 
         binding = ActivityCarInfoBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         Intent intent = getIntent();
         CarInfo carInfo = (CarInfo) intent.getExtras().get("carInfo");
         binding.setCarInfo(carInfo);
-        getSupportActionBar().setTitle(carInfo.getBrand()+" "+carInfo.getModel());
+        getSupportActionBar().setTitle(carInfo.getBrand()+" -> "+carInfo.getModel());
 
     }
     @Override    public void onBackPressed() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setCancelable(false);
-        builder.setMessage("Do you want to return to the previous page?");
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            @Override            public void onClick(DialogInterface dialog, int which) {
-                finish();
-            }
-        });
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
-        AlertDialog alert = builder.create();
-        alert.show();
+        this.showAlertDialogForTogActivities("Do you want to return to the previous page?");
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        this.onBackPressed();
+//        if (item.getItemId() == android.R.id.home) {
+//            finish();
+//        }
+        return super.onOptionsItemSelected(item);
     }
 }
